@@ -82,7 +82,7 @@ body {
 }
 button.active {
   background: #585858;
-  color: #f54642;
+  color: red;
 }
 .purchase {
   margin-top: 4rem;
@@ -97,5 +97,5 @@ button.active {
   cursor: pointer;
   border-radius: 30px;
   font-weight: bolder;
-  position: absolute;
+  justify-content: center;
 }
