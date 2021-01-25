@@ -75,6 +75,7 @@ body {
   border-radius: 30px;
   cursor: pointer;
   font-size: 0.5rem;
+  font-weigth:bold;
   color: #585858;
 }
 button.active {
