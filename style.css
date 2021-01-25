@@ -63,12 +63,12 @@ body {
 }
 .sizes {
   display: flex;
-  column-count:2;
   padding: 1rem 0rem;
   justify-content: space-between;
   transition: all 0.75s ease-out;
 }
 .sizes button {
+  column-count:2;
   padding: 0.5rem 0.8rem;
   background: rgba(235, 237, 238, 0.75);
   border: none;
