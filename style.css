@@ -97,10 +97,7 @@ button.active {
   font-weight: bolder;
 }
 @media screen and (max-width: 800px) {
-  .info h3{
-    width:100%;
-  }    
   .sizes {
-    width:50%;
+    column-count:2;
   }    
 }
