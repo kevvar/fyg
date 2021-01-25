@@ -64,6 +64,7 @@ body {
 .sizes {
   display: flex;
   padding: 1rem 0rem;
+  box-sizing:border-box;
   justify-content: space-between;
   transition: all 0.75s ease-out;
 }
