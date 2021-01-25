@@ -52,20 +52,18 @@ body {
   z-index: 1;
 }
 .info h1 {
-  font-size: 2rem;
-  padding: 2rem 0rem;
+  font-size: 1.7rem;
   transition: all 0.75s ease-out;
 }
 .info h3 {
   font-size: 0.8rem;
-  padding: 2rem 0rem;
   color: #585858;
   font-weight: lighter;
   transition: all 0.75s ease-out;
 }
 .sizes {
   display: flex;
-  padding: 2rem 0rem;
+  padding: 1rem 0rem;
   justify-content: space-between;
   transition: all 0.75s ease-out;
 }
