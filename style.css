@@ -97,4 +97,5 @@ button.active {
   cursor: pointer;
   border-radius: 30px;
   font-weight: bolder;
+  position: absolute;
 }
