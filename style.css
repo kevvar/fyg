@@ -82,14 +82,14 @@ body {
 }
 button.active {
   background: #585858;
-  color: white;
+  color: #f54642;
 }
 .purchase {
   margin-top: 4rem;
   transition: all 0.75s ease-out;
 }
 .purchase button {
-  width: 100%;
+  width: 50%;
   padding: 0.5rem 0rem;
   background: #f54642;
   border: none;
