@@ -100,7 +100,7 @@ button.active {
   .info h3{
     width:100%;
   }    
-  .sizes button{
+  .sizes {
     width:50%;
   }    
 }
