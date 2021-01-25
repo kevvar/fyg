@@ -64,7 +64,6 @@ body {
 .sizes {
   display: flex;
   padding: 1rem 0rem;
-  width:100%;
   justify-content: space-between;
   transition: all 0.75s ease-out;
 }
@@ -96,4 +95,12 @@ button.active {
   cursor: pointer;
   border-radius: 30px;
   font-weight: bolder;
+}
+@media screen and (max-width: 800px) {
+  .info h3{
+    width:100%;
+  }    
+  .sizes button{
+    width:50%;
+  }    
 }
