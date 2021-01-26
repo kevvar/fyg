@@ -66,6 +66,7 @@ body {
   display: flex;
   justify-content: space-between;
   transition: all 0.75s ease-out;
+  padding: 1rem 0rem;
 }
 .sizes button {
   padding: 0.5rem 2rem;
