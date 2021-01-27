@@ -64,10 +64,11 @@ body {
 }
 .sizes {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   transition: all 0.75s ease-out;
 }
 .sizes button {
+  width: 50%;
   padding: 0.5rem 2rem;
   background: none;
   border: none;
