@@ -39,8 +39,8 @@ body {
   transition: all 0.75s ease-out;
 }
 .circle {
-  width: 10rem;
-  height: 10rem;
+  width: 13rem;
+  height: 13rem;
   background: linear-gradient(
     to right,
     rgba(253, 251, 251, 0.75),
