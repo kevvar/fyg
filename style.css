@@ -79,7 +79,7 @@ body {
   font-size: 0.6rem;
   color: #585858;
 }
-button.active {
+button:hover {
   background: #585858;
   color: white;
 }
