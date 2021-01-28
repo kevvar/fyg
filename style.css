@@ -82,6 +82,7 @@ body {
 button:hover {
   background: #585858;
   color: white;
+  transition: 0.5s;
 }
 .purchase {
   margin-top: 5rem;
