@@ -118,7 +118,6 @@ img{
 
 .nav__link:hover{
   color: var(--first-color-dark);
-  transition: transform 1s;
 }
 
 .nav__toggle{
