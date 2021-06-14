@@ -118,6 +118,7 @@ img{
 
 .nav__link:hover{
   color: var(--first-color-dark);
+  text-decoration: underline white;
 }
 
 .nav__toggle{
