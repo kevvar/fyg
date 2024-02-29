@@ -264,10 +264,10 @@ img{
 .fa {
   padding: 10px;
   font-size: 30px;
-  width: 15px;
+  width: 30px;
   text-align: center;
   text-decoration: none;
-  border-radius: none;
+  border-radius: 50%;
   margin: 5px; /* agregar margen a los iconos */
   transition: transform 0.3s ease;
 }
@@ -280,16 +280,16 @@ img{
 /* Establecer un color específico para cada red social */
 
 .fa-facebook {
-  /* ===== background: #3B5998; =====*/
+  background: #3B5998;
   color: white
 }
 
 .fa-instagram {
-  /* ===== background: #E1306C; =====*/
+  background: #E1306C;
   color: white
 }
 
 .fa-whatsapp {
-  /* ===== background: #25D366; =====*/
+  background: #25D366;
   color: white
 }
