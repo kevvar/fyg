@@ -259,8 +259,7 @@ img{
   .home__img img{
     width: 604px;
   }
-}
-  /*  ===== Estilo =====*/
+    /*  ===== Estilo =====*/
   .fa {
     padding: 10px;
     font-size: 30px;
@@ -286,3 +285,4 @@ img{
     background: none;
     color: white
   }
+}
