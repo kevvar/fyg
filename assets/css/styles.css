@@ -262,9 +262,9 @@ img{
 }
 /* Estilar todos los iconos de Font Awesome */
 .fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 30px;
+  padding: 10px;
+  font-size: 15px;
+  width: 15px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
@@ -280,12 +280,15 @@ img{
 
 .fa-facebook {
   background: #3B5998;
+  color: white
 }
 
 .fa-instagram {
   background: #E1306C;
+  color: white
 }
 
 .fa-whatsapp {
   background: #25D366;
+  color: white
 }
