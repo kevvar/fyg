@@ -99,7 +99,23 @@ img{
     transition: .5s;
   }
 }
+/*===== boton =====*/
+.button {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  margin-left: auto;
+}
 
+.button:hover {
+  background-color: #555;
+}
+/*===== finboton =====*/
 .nav__close{
   position: absolute;
   top: .75rem;
