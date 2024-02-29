@@ -269,8 +269,7 @@ img{
     text-decoration: none;
     border-radius: none;
     margin: 5px;
-    transition: transform 1s ease;
-  }
+   }
 
   .fa:hover {
     opacity: 0.7;
