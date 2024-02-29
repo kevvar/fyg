@@ -263,12 +263,13 @@ img{
 /* Estilar todos los iconos de Font Awesome */
 .fa {
   padding: 10px;
-  font-size: 15px;
+  font-size: 30px;
   width: 15px;
   text-align: center;
   text-decoration: none;
   border-radius: none;
   margin: 5px; /* agregar margen a los iconos */
+  transition: transform 0.3s ease;
 }
 
 /* Agregar un efecto de opacidad al pasar el cursor sobre los iconos */
@@ -279,16 +280,16 @@ img{
 /* Establecer un color específico para cada red social */
 
 .fa-facebook {
-  background: #3B5998;
+  /* ===== background: #3B5998; =====*/
   color: white
 }
 
 .fa-instagram {
-  background: #E1306C;
+  /* ===== background: #E1306C; =====*/
   color: white
 }
 
 .fa-whatsapp {
-  background: #25D366;
+  /* ===== background: #25D366; =====*/
   color: white
 }
