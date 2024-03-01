@@ -245,7 +245,7 @@ img{
   }
 
   .nav__item{
-    margin-left: 3rem;
+    margin-left: 5rem;
     margin-bottom: 0;
     display: inline-block; /* Muestra los elementos como bloques en línea */
     vertical-align: middle; /* Alinea verticalmente los elementos */
