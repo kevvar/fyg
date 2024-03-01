@@ -111,23 +111,20 @@ img{
    }
 
   .fa:hover {
-    opacity: 0.7;
+    color: var(--first-color-dark);
     transform: translateY(-5px);
   }
   .fa-facebook {
     background: none;
     color: white
-    transition: transform 0.5s ease;
   }
   .fa-instagram {
     background: none;
     color: white
-    transition: transform 0.5s ease;
   }
   .fa-whatsapp {
     background: none;
     color: white
-    transition: transform 0.5s ease;
   }
 /*===== boton =====*/
 .button {
