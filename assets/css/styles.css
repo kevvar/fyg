@@ -245,11 +245,11 @@ img{
   }
 
   .nav__item{
-    margin-left: 3rem;
+    /* ===== margin-left: 3rem;  =====*/
     margin-bottom: 0;
     display: inline-block; /* Muestra los elementos como bloques en línea */
     vertical-align: middle; /* Alinea verticalmente los elementos */
-    /* ===== margin-right: 10px;  =====*/ /* Espacio entre los elementos */
+    margin-right: 3rem; /* Espacio entre los elementos este se quita es prueba */
   }
 
   .home__container{
