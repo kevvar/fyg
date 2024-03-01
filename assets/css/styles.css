@@ -287,3 +287,16 @@ img{
     width: 604px;
   }
 }
+.nav__link--acceder {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    background-color: var(--first-color-dark); /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.nav__link--acceder:hover {
+    background-color: var(--first-color-darken); /* Cambia el color de fondo al pasar el mouse */
+}
