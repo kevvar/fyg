@@ -289,7 +289,7 @@ img{
 }
 .nav__link--acceder {
     display: inline-block;
-    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    padding: 5px 10px; /* Ajusta el padding según sea necesario */
     background-color: var(--first-color-dark); /* Color de fondo del botón */
     color: white; /* Color del texto */
     text-decoration: none; /* Elimina el subrayado del enlace */
