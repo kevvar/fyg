@@ -108,7 +108,7 @@ img{
     text-decoration: none;
     border-radius: none;
     margin: 3px;
-    transition: transform 0.8s ease;
+    transition: .5s;
    }
 
   .fa:hover {
