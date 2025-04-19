@@ -1,74 +1,391 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="assets/css/styles.css">
-
-        <title>Fernández & Granados SA</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                  <div>
-                    <a href="#" class="nav__logo">F&G</a>
-                </div>                
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Box Icons y Font Awesome -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <title>Fernández & Granados SA</title>
+    
+    <style>
+        /* Variables CSS */
+        :root {
+            /* Colores */
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+            
+            /* Transiciones */
+            --transition: all 0.4s ease;
+        }
+        
+        /* Reset y estilos base */
+        *,::before,::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        h1, h2, p {
+            margin: 0;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--light-text);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Header */
+        .l-header {
+            width: 100%;
+            padding: 1.5rem 0;
+            background-color: transparent;
+        }
+        
+        /* Navegación */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav__logo {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .nav__logo:hover {
+            opacity: 0.8;
+        }
+        
+        .nav__menu {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav__list {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav__item {
+            margin-left: 2rem;
+        }
+        
+        .nav__link {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .nav__link:hover {
+            opacity: 0.8;
+        }
+        
+        .nav__link--acceder {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .nav__toggle, .nav__close {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Sección Home */
+        .home {
+            padding: 2rem 0;
+        }
+        
+        /* Contenedor principal */
+        .home__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            width: 100%;
+        }
+        
+        /* Contenedor de la imagen */
+        .home__img {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            position: relative;
+            display: flex;
+            justify-content: center; /* Centro horizontal */
+            align-items: center; /* Centro vertical */
+        }
+        
+        /* La imagen en sí */
+        .home__img img {
+            width: auto; /* Permite que la imagen mantenga su proporción */
+            height: auto;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto; /* Centra la imagen si es más pequeña que el contenedor */
+        }
+        
+        /* Ocultar imágenes adicionales (en caso de haberlas) */
+        .home__img img:not(:first-child) {
+            display: none;
+        }
+        
+        /* Contenido textual */
+        .home__data {
+            width: 100%;
+            max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .home__title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .home__description {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Botones */
+        .home__button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .home__button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Iconos sociales */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .nav__menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100%;
+                background-color: var(--primary-color);
+                padding: 3.5rem 1.5rem 0;
+                transition: var(--transition);
+                z-index: 100;
+            }
+            
+            .nav__close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                display: block;
+            }
+            
+            .nav__toggle {
+                display: block;
+            }
+            
+            .nav__list {
+                flex-direction: column;
+                row-gap: 2.5rem;
+            }
+            
+            .nav__item {
+                margin: 0;
+            }
+            
+            .home__title {
+                font-size: 2.5rem;
+            }
+            
+            .home__img {
+                max-width: 80%;
+            }
+        }
+        
+        /* Show menu class (for mobile navigation) */
+        .show-menu {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="l-header">
+        <nav class="nav">
+            <a href="#" class="nav__logo">F&G</a>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
                 </div>
-
-                <div class="nav__menu" id="nav-menu">
-                    <div class="nav__close" id="nav-close">
-                        <i class='bx bx-x'></i>
-                    </div>
-
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo</a></li>
-                        <li class="nav__item"><a href="https://servicios.fernandezygranados.com/nomina" class="nav__link">Nóminas</a></li>
-                        <li class="nav__item"><a href="https://servicios.fernandezygranados.com/acerca" class="nav__link">Acerca de nosotros</a></li>
-                        <li class="nav__item"><a href="https://appsfyg.notion.site/Inicio-de-sesi-n-61d257a4a9214ca6b120236e82f8afa5?pvs=4" class="nav__link nav__link--acceder">Acceder</a></li>
-                    </ul>
+                
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo</a></li>
+                    <li class="nav__item"><a href="https://servicios.fernandezygranados.com/nomina" class="nav__link">Nóminas</a></li>
+                    <li class="nav__item"><a href="https://servicios.fernandezygranados.com/acerca" class="nav__link">Acerca de nosotros</a></li>
+                    <li class="nav__item"><a href="https://appsfyg.notion.site/Inicio-de-sesi-n-61d257a4a9214ca6b120236e82f8afa5?pvs=4" class="nav__link nav__link--acceder">Acceder</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="l-main">
+        <!-- Home -->
+        <section class="home" id="home">
+            <div class="home__container">
+                <!-- Contenedor de imagen mejorado para centrar -->
+                <div class="home__img">
+                    <img src="assets/img/img6.png" alt="Fernández & Granados Ilustración" class="floating">
+                </div>
+                
+                <div class="home__data">
+                    <h1 class="home__title">Fernández & Granados</h1>
+                    <p class="home__description">Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio.</p>
                     
-                </div>
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <div class="home__img">
-                        <img src="assets/img/img1.svg" alt="" data-speed="-2" class="move">
-                        <img src="assets/img/img2.png" alt="" data-speed="2" class="move">
-                        <img src="assets/img/img3.svg" alt="" data-speed="-2" class="move">
-                        <img src="assets/img/img4.svg" alt="" data-speed="-2" class="move">
-                        <img src="assets/img/img5.svg" alt="" data-speed="-2" class="move">
-                        <img src="assets/img/img6.png" alt="" data-speed="2" class="move">
-                    </div>
-
-                    <div class="home__data">
-                        <h1 class="home__title">Fernández &<br> Granados</h1>
-                        <p class="home__description">Variedad de opciones, métodos innovadores,<br> con personal altamente calificado para brindar el mejor servicio.</p>
+                    <div class="home__buttons">
                         <a href="https://servicios.fernandezygranados.com/contacto" class="home__button">Contacto</a>
-                        <a href="https://www.facebook.com/Fernández-Granados-S-A-104377944735477/" class="fa fa-facebook"></a>
-                        <a href="https://www.instagram.com/fernandezygranados/" class="fa fa-instagram"></a>
-                        <a href="https://api.whatsapp.com/send?phone=50672067720" class="fa fa-whatsapp"></a>  
+                        <a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="home__button">Ver Catálogo</a>
                     </div>
-
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Fernández-Granados-S-A-104377944735477/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/fernandezygranados/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=50672067720" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
-            </section>
-        </main>
-
-        <!--===== GSAP =====-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+            </div>
+        </section>
+    </main>
+    
+    <!-- JavaScript -->
+    <script>
+        // Menu show/hide
+        const navMenu = document.getElementById('nav-menu'),
+              navToggle = document.getElementById('nav-toggle'),
+              navClose = document.getElementById('nav-close');
+        
+        // Show menu
+        if(navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.add('show-menu');
+            });
+        }
+        
+        // Hide menu
+        if(navClose) {
+            navClose.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        }
+        
+        // Remove menu on link click
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        });
+    </script>
+</body>
 </html>
