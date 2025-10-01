@@ -94,9 +94,9 @@
         }
         
         .nav__link--acceder:hover {
-            background: #d4ff33;
+            background: #8fff1a;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(200, 255, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(127, 255, 0, 0.3);
         }
         
         .nav__toggle {
@@ -104,6 +104,10 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #ffffff;
+        }
+        
+        .nav__close {
+            display: none;
         }
         
         /* Hero Section */
@@ -124,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(200, 255, 0, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 50% 50%, rgba(127, 255, 0, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
         
@@ -192,9 +196,9 @@
         }
         
         .btn--primary:hover {
-            background: #d4ff33;
+            background: #8fff1a;
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(200, 255, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(127, 255, 0, 0.4);
         }
         
         .btn--secondary {
@@ -341,7 +345,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(200, 255, 0, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(127, 255, 0, 0.3), transparent);
         }
         
         .philosophy__container {
@@ -396,15 +400,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(200, 255, 0, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(127, 255, 0, 0.05), transparent);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
         
         .philosophy__card:hover {
             transform: translateY(-10px);
-            border-color: rgba(200, 255, 0, 0.3);
-            box-shadow: 0 20px 60px rgba(200, 255, 0, 0.1);
+            border-color: rgba(127, 255, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(127, 255, 0, 0.1);
         }
         
         .philosophy__card:hover::before {
@@ -527,9 +531,10 @@
                 height: 100vh;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(20px);
-                padding: 4rem 2rem;
+                padding: 6rem 2rem 4rem;
                 transition: right 0.4s ease;
                 border-left: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 1500;
             }
             
             .nav__menu.show {
@@ -544,6 +549,29 @@
             
             .nav__toggle {
                 display: block;
+                z-index: 1000;
+            }
+            
+            .nav__close {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                font-size: 2.5rem;
+                cursor: pointer;
+                color: #ffffff;
+                display: flex;
+                background: rgba(127, 255, 0, 0.2);
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            .nav__close:hover {
+                background: rgba(127, 255, 0, 0.3);
+                transform: rotate(90deg);
             }
             
             .hero {
@@ -607,6 +635,9 @@
             </div>
             
             <div class="nav__menu" id="navMenu">
+                <div class="nav__close" id="navClose">
+                    <i class='bx bx-x'></i>
+                </div>
                 <ul class="nav__list">
                     <li><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo vivienda</a></li>
                     <li><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo empresas</a></li>
@@ -624,8 +655,8 @@
                 <p class="hero__subtitle">Construcción con Excelencia</p>
                 <h1 class="hero__title">
                     Fernández & Granados,<br>
-                    <span class="hero__title-highlight">Donde la FE</span><br>
-                    construye hogares.
+                    <span class="hero__title-highlight">Viviendas</span><br>
+                    con propósito.
                 </h1>
                 <p class="hero__description">
                     Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio en construcción.
@@ -705,7 +736,7 @@
                     <div class="philosophy__pillar">
                         <h4 class="philosophy__pillar-title">Fe y Bendición</h4>
                         <p class="philosophy__pillar-text">
-                            Creemos en la guía de Dios y en compartir nuestras bendiciones en cada proyecto. Con nuestro trabajo buscamos ser instrumentos de bienestar, prosperidad y alegría tanto para empresas como para hogares.
+                            Creemos en la guía divina y en compartir nuestras bendiciones en cada proyecto. Con nuestro trabajo buscamos ser instrumentos de bienestar, prosperidad y alegría tanto para empresas como para hogares.
                         </p>
                     </div>
                     
@@ -761,12 +792,14 @@
         // Mobile menu toggle
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        const navClose = document.getElementById('navClose');
         
         navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('bx-menu');
-            icon.classList.toggle('bx-x');
+            navMenu.classList.add('show');
+        });
+        
+        navClose.addEventListener('click', () => {
+            navMenu.classList.remove('show');
         });
         
         // Close menu when clicking on a link
@@ -774,15 +807,11 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('show');
-                const icon = navToggle.querySelector('i');
-                icon.classList.add('bx-menu');
-                icon.classList.remove('bx-x');
             });
         });
     </script>
 </body>
 </html>
-
 
 
 
