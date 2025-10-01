@@ -3,30 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Box Icons y Font Awesome -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
     <title>Fernández & Granados SA</title>
     
     <style>
-        /* Variables CSS */
-        :root {
-            /* Colores */
-            --primary-color: #4e54c8;
-            --secondary-color: #8f94fb;
-            --text-color: #333;
-            --light-text: #f8f9fa;
-            
-            /* Transiciones */
-            --transition: all 0.4s ease;
-        }
-        
-        /* Reset y estilos base */
-        *,::before,::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         html {
@@ -34,205 +19,278 @@
         }
         
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
             line-height: 1.6;
-        }
-        
-        h1, h2, p {
-            margin: 0;
-        }
-        
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--light-text);
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+            overflow-x: hidden;
         }
         
         /* Header */
-        .l-header {
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 1.5rem 0;
-            background-color: transparent;
+            padding: 1.5rem 4rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
         
-        /* Navegación */
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
         
         .nav__logo {
-            color: var(--light-text);
             font-size: 1.5rem;
             font-weight: 700;
-            transition: var(--transition);
-        }
-        
-        .nav__logo:hover {
-            opacity: 0.8;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
         
         .nav__menu {
             display: flex;
             align-items: center;
+            gap: 3rem;
         }
         
         .nav__list {
             display: flex;
             list-style: none;
-        }
-        
-        .nav__item {
-            margin-left: 2rem;
+            gap: 3rem;
+            align-items: center;
         }
         
         .nav__link {
-            color: var(--light-text);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-weight: 400;
         }
         
         .nav__link:hover {
-            opacity: 0.8;
+            color: #ffffff;
         }
         
         .nav__link--acceder {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 0.7rem 1.5rem;
+            background: #7FFF00;
+            color: #0a0a0a;
+            padding: 0.7rem 1.8rem;
             border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
         
-        .nav__toggle, .nav__close {
+        .nav__link--acceder:hover {
+            background: #d4ff33;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(200, 255, 0, 0.3);
+        }
+        
+        .nav__toggle {
             display: none;
+            font-size: 1.8rem;
             cursor: pointer;
-            font-size: 1.5rem;
+            color: #ffffff;
         }
         
-        /* Sección Home */
-        .home {
-            padding: 2rem 0;
-        }
-        
-        /* Contenedor principal */
-        .home__container {
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            text-align: center;
-            width: 100%;
-        }
-        
-        /* Contenedor de la imagen */
-        .home__img {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 2rem;
+            padding: 8rem 4rem 4rem;
             position: relative;
-            display: flex;
-            justify-content: center; /* Centro horizontal */
-            align-items: center; /* Centro vertical */
+            overflow: hidden;
         }
         
-        /* La imagen en sí */
-        .home__img img {
-            width: auto; /* Permite que la imagen mantenga su proporción */
-            height: auto;
-            max-width: 100%;
-            display: block;
-            margin: 0 auto; /* Centra la imagen si es más pequeña que el contenedor */
-        }
-        
-        /* Ocultar imágenes adicionales (en caso de haberlas) */
-        .home__img img:not(:first-child) {
-            display: none;
-        }
-        
-        /* Contenido textual */
-        .home__data {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 800px;
-            animation: fadeIn 1s ease-out;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(200, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .home__title {
-            font-size: 3rem;
+        .hero__container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .hero__content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero__subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
         }
         
-        .home__description {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+        .hero__title {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -2px;
         }
         
-        /* Botones */
-        .home__button {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
-            padding: 1rem 2rem;
+        .hero__title-highlight {
+            color: #7FFF00;
+        }
+        
+        .hero__description {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        
+        .hero__buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
             text-decoration: none;
-            transition: var(--transition);
-            margin-right: 1rem;
-            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
         
-        .home__button:hover {
+        .btn--primary {
+            background: #7FFF00;
+            color: #0a0a0a;
+        }
+        
+        .btn--primary:hover {
+            background: #d4ff33;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(200, 255, 0, 0.4);
         }
         
-        /* Iconos sociales */
-        .social-links {
+        .btn--secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn--secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero__visual {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        .hero__image-container {
+            position: relative;
+            width: 100%;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            align-items: center;
+        }
+        
+        .steel-frame {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Grid decorativo de fondo */
+        .grid-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
         .social-links a {
-            color: var(--light-text);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 1.5rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
         
         .social-links a:hover {
+            color: #7FFF00;
             transform: translateY(-3px);
         }
         
-        /* Animaciones */
-        @keyframes fadeIn {
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .scroll-indicator i {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.5rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -240,150 +298,485 @@
             }
         }
         
-        .floating {
-            animation: float 6s ease-in-out infinite;
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         @keyframes float {
-            0% {
+            0%, 100% {
                 transform: translateY(0px);
             }
             50% {
                 transform: translateY(-20px);
             }
-            100% {
-                transform: translateY(0px);
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
             }
         }
         
-        /* Media Queries */
+        /* Philosophy Section */
+        .philosophy {
+            padding: 8rem 4rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
+            position: relative;
+        }
+        
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(200, 255, 0, 0.3), transparent);
+        }
+        
+        .philosophy__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .philosophy__header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .philosophy__title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .philosophy__subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .philosophy__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .philosophy__card--full {
+            grid-column: 1 / -1;
+        }
+        
+        .philosophy__card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .philosophy__card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .philosophy__card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(200, 255, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(200, 255, 0, 0.1);
+        }
+        
+        .philosophy__card:hover::before {
+            opacity: 1;
+        }
+        
+        .philosophy__icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .philosophy__card-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .philosophy__card-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .philosophy__pillars {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .philosophy__pillars-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .philosophy__pillars-list {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .philosophy__pillar {
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .philosophy__pillar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 4px;
+            height: calc(100% - 0.5rem);
+            background: linear-gradient(180deg, #7FFF00, transparent);
+            border-radius: 2px;
+        }
+        
+        .philosophy__pillar-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #7FFF00;
+        }
+        
+        .philosophy__pillar-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .philosophy__cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 1024px) {
+            .header {
+                padding: 1.5rem 2rem;
+            }
+            
+            .hero {
+                padding: 8rem 2rem 4rem;
+            }
+            
+            .hero__container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .hero__title {
+                font-size: 3.5rem;
+            }
+            
+            .hero__visual {
+                order: -1;
+            }
+            
+            .philosophy {
+                padding: 6rem 2rem;
+            }
+            
+            .philosophy__title {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media screen and (max-width: 768px) {
             .nav__menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
-                height: 100%;
-                background-color: var(--primary-color);
-                padding: 3.5rem 1.5rem 0;
-                transition: var(--transition);
-                z-index: 100;
+                width: 80%;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 4rem 2rem;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            .nav__close {
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                display: block;
+            .nav__menu.show {
+                right: 0;
+            }
+            
+            .nav__list {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: flex-start;
             }
             
             .nav__toggle {
                 display: block;
             }
             
-            .nav__list {
-                flex-direction: column;
-                row-gap: 2.5rem;
+            .hero {
+                padding: 6rem 1.5rem 4rem;
             }
             
-            .nav__item {
-                margin: 0;
-            }
-            
-            .home__title {
+            .hero__title {
                 font-size: 2.5rem;
             }
             
-            .home__img {
-                max-width: 80%;
+            .hero__description {
+                font-size: 1.1rem;
             }
-        }
-        
-        /* Show menu class (for mobile navigation) */
-        .show-menu {
-            right: 0;
+            
+            .hero__buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+            
+            .philosophy {
+                padding: 4rem 1.5rem;
+            }
+            
+            .philosophy__title {
+                font-size: 2rem;
+            }
+            
+            .philosophy__grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .philosophy__card {
+                padding: 2rem;
+            }
+            
+            .philosophy__pillars {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="grid-background"></div>
+    
     <!-- Header -->
-    <header class="l-header">
+    <header class="header">
         <nav class="nav">
             <a href="#" class="nav__logo">F&G</a>
             
-            <div class="nav__toggle" id="nav-toggle">
+            <div class="nav__toggle" id="navToggle">
                 <i class='bx bx-menu'></i>
             </div>
             
-            <div class="nav__menu" id="nav-menu">
-                <div class="nav__close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
-                
+            <div class="nav__menu" id="navMenu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo vivienda</a></li>
-                    <li class="nav__item"><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo empresas</a></li>
-                    <li class="nav__item"><a href="https://servicios.fernandezygranados.com/acerca" class="nav__link">Acerca de nosotros</a></li>
-                    <li class="nav__item"><a href="https://appsfyg.notion.site/2792f3fdf10c80b89b39e084c466dd6d?pvs=105" class="nav__link nav__link--acceder">Acceder</a></li>
+                    <li><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo vivienda</a></li>
+                    <li><a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="nav__link">Catálogo empresas</a></li>
+                    <li><a href="#filosofia" class="nav__link">Acerca de nosotros</a></li>
+                    <li><a href="https://appsfyg.notion.site/2792f3fdf10c80b89b39e084c466dd6d?pvs=105" class="nav__link nav__link--acceder">Acceder →</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     
-    <main class="l-main">
-        <!-- Home -->
-        <section class="home" id="home">
-            <div class="home__container">
-                <!-- Contenedor de imagen mejorado para centrar -->
-                <div class="home__img">
-                    <img src="assets/img/img1.png" alt="Fernández & Granados Ilustración" class="floating">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <p class="hero__subtitle">Construcción con Excelencia</p>
+                <h1 class="hero__title">
+                    Fernández & Granados,<br>
+                    <span class="hero__title-highlight">Donde la FE</span><br>
+                    construye hogares.
+                </h1>
+                <p class="hero__description">
+                    Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio en construcción.
+                </p>
+                
+                <div class="hero__buttons">
+                    <a href="https://servicios.fernandezygranados.com/form" class="btn btn--primary">Contacto</a>
+                    <a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="btn btn--secondary">Ver Catálogo</a>
                 </div>
                 
-                <div class="home__data">
-                    <h1 class="home__title">Fernández & Granados</h1>
-                    <p class="home__description">Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio.</p>
-                    
-                    <div class="home__buttons">
-                        <a href="https://servicios.fernandezygranados.com/form" class="home__button">Contacto</a>
-                        <a href="https://drive.google.com/file/d/1VexSBHXq-oPEh206MitHZd-8yjRpnXG7/view?usp=sharing" class="home__button">Ver Catálogo</a>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Fernández-Granados-S-A-104377944735477/" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/fernandezygranados/" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=50663797704" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero__visual">
+                <div class="hero__image-container">
+                    <img src="assets/img/img1.png" alt="Constructora Fernández & Granados" class="steel-frame">
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class='bx bx-chevron-down'></i>
+        </div>
+    </section>
+    
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="filosofia">
+        <div class="philosophy__container">
+            <div class="philosophy__header">
+                <h2 class="philosophy__title">Nuestra Filosofía</h2>
+                <p class="philosophy__subtitle">Los valores y principios que guían cada uno de nuestros proyectos</p>
+            </div>
+            
+            <div class="philosophy__grid">
+                <div class="philosophy__card">
+                    <span class="philosophy__icon">🎯</span>
+                    <h3 class="philosophy__card-title">Misión</h3>
+                    <p class="philosophy__card-content">
+                        Brindamos servicios integrales de construcción y mantenimiento de obra con excelencia, satisfaciendo las necesidades tanto de empresas como de familias, a través de soluciones personalizadas, confiables y de alta calidad que generan bienestar, confianza y valor en cada proyecto.
+                    </p>
+                </div>
+                
+                <div class="philosophy__card">
+                    <span class="philosophy__icon">🌱</span>
+                    <h3 class="philosophy__card-title">Visión</h3>
+                    <p class="philosophy__card-content">
+                        Ser el aliado estratégico de empresas y familias en la materialización de sus proyectos constructivos. A través de nuestro enfoque profesional, humano y de atención personalizada, convertimos sueños y visiones arquitectónicas en realidades tangibles, optimizando espacios de trabajo, convivencia y vida para potenciar el éxito y la felicidad de quienes confían en nosotros.
+                    </p>
+                </div>
+                
+                <div class="philosophy__card philosophy__card--full">
+                    <span class="philosophy__icon">⛳</span>
+                    <h3 class="philosophy__card-title">Política</h3>
+                    <p class="philosophy__card-content">
+                        Nos comprometemos a brindar servicios de construcción y mantenimiento de la más alta calidad, superando las expectativas tanto de clientes empresariales como de familias. Adoptamos un enfoque centrado en las personas, escuchando sus necesidades y ofreciendo soluciones confiables y personalizadas. Actuamos con integridad y transparencia, fomentando relaciones de confianza y colaboración duraderas. Buscamos la mejora continua en cada proceso, aplicando las mejores prácticas y aprendiendo de cada proyecto. Nuestro equipo experto trabaja en armonía para materializar los sueños y proyectos de nuestros clientes, impulsando su desarrollo, bienestar y crecimiento.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="philosophy__pillars">
+                <h3 class="philosophy__pillars-title">
+                    <span>💎</span>
+                    Nuestros Pilares
+                </h3>
+                <div class="philosophy__pillars-list">
+                    <div class="philosophy__pillar">
+                        <h4 class="philosophy__pillar-title">Fe y Bendición</h4>
+                        <p class="philosophy__pillar-text">
+                            Creemos en la guía divina y en compartir nuestras bendiciones en cada proyecto. Con nuestro trabajo buscamos ser instrumentos de bienestar, prosperidad y alegría tanto para empresas como para hogares.
+                        </p>
                     </div>
                     
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/Fernández-Granados-S-A-104377944735477/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/fernandezygranados/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://api.whatsapp.com/send?phone=50663797704" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <div class="philosophy__pillar">
+                        <h4 class="philosophy__pillar-title">Integridad y Transparencia</h4>
+                        <p class="philosophy__pillar-text">
+                            Actuamos con los más altos estándares éticos, generando confianza y relaciones sólidas con todos nuestros clientes.
+                        </p>
+                    </div>
+                    
+                    <div class="philosophy__pillar">
+                        <h4 class="philosophy__pillar-title">Compromiso con el Cliente</h4>
+                        <p class="philosophy__pillar-text">
+                            Reconocemos las necesidades únicas de cada persona y organización; por ello diseñamos soluciones personalizadas, buscando siempre superar expectativas.
+                        </p>
+                    </div>
+                    
+                    <div class="philosophy__pillar">
+                        <h4 class="philosophy__pillar-title">Calidad y Mejora Continua</h4>
+                        <p class="philosophy__pillar-text">
+                            Entregamos servicios de excelencia, aplicando las mejores prácticas y aprendiendo de cada experiencia para crecer juntos.
+                        </p>
+                    </div>
+                    
+                    <div class="philosophy__pillar">
+                        <h4 class="philosophy__pillar-title">Trabajo en Equipo y Experticia</h4>
+                        <p class="philosophy__pillar-text">
+                            Fomentamos un ambiente de colaboración, aprovechando la experiencia de nuestro equipo para ofrecer soluciones integrales y efectivas en todo tipo de proyecto.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="philosophy__cta">
+                <a href="http://servicios.fernandezygranados.com/recursos-y-fuentes-de-inspiracin" class="btn btn--primary">
+                    Recursos de Inspiración →
+                </a>
+            </div>
+        </div>
+    </section>
     
-    <!-- JavaScript -->
     <script>
-        // Menu show/hide
-        const navMenu = document.getElementById('nav-menu'),
-              navToggle = document.getElementById('nav-toggle'),
-              navClose = document.getElementById('nav-close');
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
         
-        // Show menu
-        if(navToggle) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.add('show-menu');
-            });
-        }
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
         
-        // Hide menu
-        if(navClose) {
-            navClose.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
-            });
-        }
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('bx-menu');
+            icon.classList.toggle('bx-x');
+        });
         
-        // Remove menu on link click
+        // Close menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav__link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('show-menu');
+                navMenu.classList.remove('show');
+                const icon = navToggle.querySelector('i');
+                icon.classList.add('bx-menu');
+                icon.classList.remove('bx-x');
             });
         });
     </script>
